@@ -1,0 +1,8 @@
+# Old Wix addresses -> new site, so Google results and bookmarks keep working
+/reservations      https://tables.toasttab.com/restaurants/2b60e48a-4269-41ce-a4d6-7ea897bff795/findTime  301
+/menu              /#menu        301
+/event-list        /#events      301
+/event-details/*   /#events      301
+/services-5        /#private     301
+/about-1           /             301
+/experiences       /             301
