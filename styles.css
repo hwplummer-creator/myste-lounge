@@ -93,12 +93,19 @@ h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(40px, 6vw, 72
 /* Hero */
 .hero { background: var(--panel); border-bottom: 1px solid var(--line); background-size: cover; background-position: center; }
 .hero.has-photo { position: relative; overflow: hidden; }
-.hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 70% 40%; }
-.hero-shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(14,12,11,.88) 0%, rgba(14,12,11,.6) 45%, rgba(14,12,11,.15) 100%); }
 .hero-inner { position: relative; }
-@media (max-width: 640px) {
-  .hero-img { object-position: center 30%; }
-  .hero-shade { background: linear-gradient(rgba(14,12,11,.6), rgba(14,12,11,.82)); }
+/* Wide screens: headline left, photo fills the right half */
+@media (min-width: 900px) {
+  .hero.has-photo .hero-inner { padding-right: 52%; }
+  .hero.has-photo h1 { font-size: clamp(56px, 6.5vw, 104px); }
+  .hero-img { position: absolute; top: 0; right: 0; bottom: 0; width: 48%; height: 100%; object-fit: cover; object-position: 42% 50%; }
+  .hero-shade { position: absolute; top: 0; right: 0; bottom: 0; width: 48%; background: linear-gradient(90deg, #1A1513 0%, rgba(26,21,19,0) 28%); }
+}
+/* Phones and tablets: whole photo on top, text below */
+@media (max-width: 899px) {
+  .hero-img { display: block; width: 100%; height: auto; }
+  .hero-shade { display: none; }
+  .hero.has-photo .hero-inner { padding-top: 48px; }
 }
 .hero-inner { display: flex; flex-direction: column; gap: 28px; padding-top: 140px; padding-bottom: 96px; }
 .hero-facts { display: flex; flex-wrap: wrap; gap: 16px 48px; margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--line-strong); font-size: 14px; color: var(--text-soft); }
